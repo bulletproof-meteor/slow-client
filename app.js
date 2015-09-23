@@ -15,18 +15,7 @@ if(Meteor.isServer) {
 
   Meteor.methods({
     addTodo: function(title) {
-      check(title, String);
-
-      // sending emails to followers for this todo list
-      followers.forEach(function(follower) {
-        Email.send({
-          from: "hello@todoapp.com",
-          to: follower,
-          subject: "New todo added",
-          text: "here's the todo item: " + title
-        });
-      });
-      
+      check(title, String);      
       var a =  Todos.insert({'title': title});
     }
   });
@@ -39,8 +28,10 @@ if(Meteor.isClient) {
     'click #add-todo': function () {
       var todoText = $('#input-todo').val();
       if(todoText.trim() != ""){
-        Meteor.call('addTodo', todoText, function() {
-          alert("todo added successfully");
+        Meteor.call('addTodo', todoText, function(err) {
+          if(err) {
+            alert("Error adding todo: " + err.reason);
+          }
         });
         $('#input-todo').val('');
       }
@@ -57,6 +48,9 @@ if(Meteor.isClient) {
   });
 
   Template.main.checkedState = function() {
+    for(var lc=0; lc<9000; lc++) {
+      Random.id();
+    }
     return this.isDone? "checked": "";
   }
 
