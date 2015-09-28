@@ -48,7 +48,7 @@ if(Meteor.isClient) {
   });
 
   Template.main.checkedState = function() {
-    for(var lc=0; lc<9000; lc++) {
+    for(var lc=0; lc<20000; lc++) {
       Random.id();
     }
     return this.isDone? "checked": "";
