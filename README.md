@@ -1,4 +1,4 @@
-# [Defer execution in Meteor](https://bulletproofmeteor.com/basics/defer-the-execution)
+# [Debugging a Slow App](https://bulletproofmeteor.com/basics/debugging-a-slow-app)
 
 
-[![Defer execution in Meteor](https://cldup.com/YPySJMdmSF.png)](https://bulletproofmeteor.com/basics/defer-the-execution)
+[![Debugging a Slow App](https://cldup.com/heg9Aby2wo.png)](https://bulletproofmeteor.com/basics/debugging-a-slow-app)
